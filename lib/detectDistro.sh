@@ -1,6 +1,6 @@
 #!/bin/bash
 
-detectDisto(){
+detectDistro(){
   if [[ -f /etc/debian_version ]]; then
     if grep -qi "ubuntu" /etc/os-release; then
         echo "Ubuntu"
