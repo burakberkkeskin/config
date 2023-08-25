@@ -1,7 +1,7 @@
 #!/bin/bash
 
 checkBaseDevel(){
-  if ! command -v gitt &> /dev/null; then
+  if ! command -v git &> /dev/null; then
     warn "Base-Devel not found, installing git."
     return 1
   else
@@ -11,7 +11,7 @@ checkBaseDevel(){
 
 installBaseDevelPacman(){
   info "Installing base-devel with pacman."
-  # sudo pacman -S --needed base-devel --noconfirm
+  sudo pacman -S --needed base-devel --noconfirm
 }
 
 installGit(){
