@@ -56,4 +56,5 @@ configureOhMyZsh(){
   installZshSyntaxHighligting
   installZshAutoSuggestions
   updatePluginsListZshrc "docker" "kubectl"
+  installPowerlevel10k
 }
