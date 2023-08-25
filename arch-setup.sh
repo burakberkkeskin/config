@@ -7,6 +7,7 @@ source lib/baseDevelSetup.sh
 source lib/yaySetup.sh
 source lib/installPackage.sh
 source lib/detectDistro.sh
+source lib/dockerConfiguration.sh
 
 main(){
 
@@ -41,15 +42,15 @@ main(){
   # List of packages to install from yay and pacman
   local testYayPackages=("wireguard-tools" "zenv" "docker" "docker-compose" "yay")
 
-  local clientYayPackages=("brave-bin" "discord_arch_electron" "spotify" "mailspring" 
+  local clientYayPackages=("brave-bin" "discord_arch_electron" "spotify" "mailspring"
       "flameshot" "kazam" "qbittorrent" "btop"
-      "openvpn3" "wireguard-tools" "terminator"  
+      "openvpn3" "wireguard-tools" "terminator"
       "zsh")
 
-  local developerYayPackages=("code" "vim" "dbeaver" 
-        "docker" "docker-buildx" "docker-compose" 
-        "kubectl" "act-bin" "ansible" "dive" 
-        "aws-cli-v2" "postman-bin" "trivy" 
+  local developerYayPackages=("code" "vim" "dbeaver"
+        "docker" "docker-buildx" "docker-compose"
+        "kubectl" "act-bin" "ansible" "dive"
+        "aws-cli-v2" "postman-bin" "trivy"
         "zenv" "xdman" "terraform")
 
   local developerPacmanPackages=("nodejs" "npm" "python" "go")
@@ -64,6 +65,7 @@ main(){
   installRust
   installOhMyZsh
   installInfracost
+  configureDocker
 }
 
 main
