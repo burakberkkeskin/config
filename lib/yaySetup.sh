@@ -21,4 +21,5 @@ installYay(){
   info "Installing yay with makepkg."
   makepkg -si --noconfirm
   cd .. || exit 1
+  rm -rf yay
 }
