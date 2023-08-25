@@ -14,10 +14,11 @@ installYay(){
   title "Yay installation"
 
   info "Clonning yay repository."
-  # git clone https://aur.archlinux.org/yay.git
-  # chown -R  "$(USER):$(USER)" yay
-	# cd yay || exit 1
+  git clone https://aur.archlinux.org/yay.git
+  chown -R  "$(USER):$(USER)" yay
+	cd yay || exit 1
 
   info "Installing yay with makepkg."
-  # makepkg -si --noconfirm
+  makepkg -si --noconfirm
+  cd .. || exit 1
 }

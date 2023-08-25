@@ -1,7 +1,7 @@
 #!/bin/bash
 
 checkGit(){
-  if ! command -v gitt &> /dev/null; then
+  if ! command -v git &> /dev/null; then
     warn "Git not found, installing git."
     return 1
   else
@@ -11,7 +11,7 @@ checkGit(){
 
 installGitPacman(){
   info "Installing git with pacman."
-  # sudo pacman -S git --noconfirm
+  sudo pacman -S git --noconfirm
 }
 
 installGit(){

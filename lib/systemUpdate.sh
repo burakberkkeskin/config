@@ -2,7 +2,7 @@
 
 archSystemUpdate(){
   info "Updating packages."
-  # sudo pacman -Syyu --noconfirm
+  sudo pacman -Syyu --noconfirm
 }
 
 updateSystem(){
