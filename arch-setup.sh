@@ -74,6 +74,9 @@ main(){
   configureDocker
   configureKvm
   configureOhMyZsh
+
+  success "Applications and configurations has been installed on your $operationSystem!"
+  info "Please open a new terminal session for fresh start."
 }
 
 main
