@@ -15,7 +15,7 @@ main(){
   checkGit || installGit
   checkYay || installYay
 
-  local testPackages=("wireguard" "zenv" "docker" "docker-compose")
+  local testPackages=("wireguard-tools" "zenv" "docker" "docker-compose")
 
   local clientPackages=("brave-bin" "discord_arch_electron" "spotify" "mailspring" 
       "flameshot" "kazam" "qbittorrent" "btop"
