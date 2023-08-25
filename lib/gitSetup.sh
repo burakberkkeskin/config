@@ -1,7 +1,6 @@
 #!/bin/bash
 
 checkGit(){
-  title "Checking git"
   if ! command -v gitt &> /dev/null; then
     warn "Git not found, installing git."
     return 1
@@ -16,6 +15,6 @@ installGitPacman(){
 }
 
 installGit(){
-  title "Installing git"
+  title "Git installation"
   installGitPacman
 }

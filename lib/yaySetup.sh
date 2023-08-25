@@ -2,7 +2,6 @@
 
 checkYay(){
   title "Checking yay"
-
   if ! command -v yayy &> /dev/null; then
     warn "Yay not found, installing yay."
     return 1
@@ -12,7 +11,7 @@ checkYay(){
 }
 
 installYay(){
-  title "Installing yay"
+  title "Yay installation"
 
   info "Clonning yay repository."
   # git clone https://aur.archlinux.org/yay.git
