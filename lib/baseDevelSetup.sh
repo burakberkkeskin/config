@@ -14,7 +14,7 @@ installBaseDevelPacman(){
   sudo pacman -S --needed base-devel --noconfirm
 }
 
-installGit(){
+installBaseDevel(){
   title "Base-devel installation"
   installBaseDevelPacman
 }
