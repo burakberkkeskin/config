@@ -8,13 +8,13 @@ updatePluginsListZshrc(){
   file_path=".zshrc"
 
   # Read the current plugins line from the file
-  current_plugins=$(grep -oP 'plugins=\(\K[^)]+' "$file_path")
+  current_plugins="$(grep -oP 'plugins=\(\K[^)]+' "$file_path")"
 
   # Convert the current plugins to an array
   IFS=' ' read -ra current_plugins_array <<< "$current_plugins"
 
   # Merge the current plugins and new plugins while removing duplicates
-  merged_plugins=($(printf "%s\n" "${current_plugins_array[@]}" "${new_plugins[@]}" | sort -u))
+  merged_plugins="$(printf "%s\n" "${current_plugins_array[@]}" "${new_plugins[@]}" | sort -u)"
 
   # Generate the new plugins line
   new_plugins_string="plugins=(${merged_plugins[*]})"
@@ -40,5 +40,5 @@ configureOhMyZsh(){
   title "Configuring OhMyZsh"
   installZshSyntaxHighligting
   installZshAutoSuggestions
-  updatePluginsListZshrc "docker" "kubectl"
+  updatePluginsListZshrc "docker" "docker-compose" "kubectl"
 }

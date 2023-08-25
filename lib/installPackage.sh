@@ -12,7 +12,7 @@ installPackageWithPacman(){
 
 installRust(){
   title "Installing Rust"
-  if ! command -v rustc --version &> /dev/null; then
+  if ! command -v rustc &> /dev/null; then
     info "Downloading and installing rust"
     curl  -sSf https://sh.rustup.rs | sh -s -- -y
   else
@@ -32,7 +32,7 @@ installOhMyZsh(){
 
 installInfracost(){
   title "Installing Infracost"
-  if ! command -v infracost --version &> /dev/null; then
+  if ! command -v infracost &> /dev/null; then
     info "Downloading and installing infracost"
     curl -fsSL https://raw.githubusercontent.com/infracost/infracost/master/scripts/install.sh | sh
   else

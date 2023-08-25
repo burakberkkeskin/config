@@ -9,6 +9,7 @@ source lib/installPackage.sh
 source lib/detectDistro.sh
 source lib/dockerConfiguration.sh
 source lib/kvmConfiguration.sh
+source lib/ohmyzshConfiguration.sh
 
 main(){
 
@@ -52,9 +53,9 @@ main(){
         "docker" "docker-buildx" "docker-compose"
         "kubectl" "act-bin" "ansible" "dive"
         "aws-cli-v2" "postman-bin" "trivy"
-        "zenv" "xdman" "terraform")
+        "zenv" "xdman8-bin" "terraform")
 
-  local developerPacmanPackages=("nodejs" "npm" "python" "go")
+  local developerPacmanPackages=("nodejs" "npm" "python" "go" "kubectx")
 
   local kvmPackages=("archlinux-keyring" "qemu" "virt-manager" "virt-viewer" "dnsmasq" "vde2" "bridge-utils" "openbsd-netcat" "dmidecode" "iptables" "libguestfs")
 
@@ -72,6 +73,7 @@ main(){
 
   configureDocker
   configureKvm
+  configureOhMyZsh
 }
 
 main

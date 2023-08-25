@@ -6,7 +6,7 @@ configureSystemdService(){
 }
 
 configureDockerPermission(){
-  sudo groupadd docker || echo "Docker group already exists"
+  sudo groupadd -f docker
   sudo usermod -aG docker "${USER}"
 }
 
