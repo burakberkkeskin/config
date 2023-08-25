@@ -36,3 +36,20 @@ detectOs(){
         echo "Unknown OS"
     fi
 }
+
+checkOs(){
+    title "Checking OS"
+    operatingSystem=$1
+    info "Your operating system: $operatingSystem"
+    if [[ "${operatingSystem}" == "Arch" ]]; then
+        info "OS: Arch Linux Base"
+    elif [[ "${operatingSystem}" == "MacOS" ]]; then
+        error "MacOS is not supported for now."
+        error "MacOS implementation will be done soon..."
+        exit 1
+    else 
+        error "Your OS is not supported."
+        error "This script supports just Arch linux for now."
+        exit 1
+    fi
+}
