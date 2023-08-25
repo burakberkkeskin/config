@@ -5,6 +5,7 @@ source lib/systemUpdate.sh
 source lib/gitSetup.sh
 source lib/yaySetup.sh
 source lib/installPackageWithYay.sh
+source lib/detectDistro.sh
 
 main(){
   distro=$(detectDistro)
