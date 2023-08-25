@@ -26,7 +26,7 @@ updateZshTheme(){
   newThemeName=$1
 
   # Use sed to replace the old ZSH_THEME line with the new one
-  sed -i "s/ZSH_THEME=\"[^\"]*\"/ZSH_THEME=\"$newThemeName\"/" "$zshrcPath"
+  sed -i "s@ZSH_THEME=\"[^\"]*\"@ZSH_THEME=\"$newThemeName\"@" "$zshrcPath"
   cp ./configurations/p10k.conf "${HOME}/.p10k.zsh"
 }
 
