@@ -26,7 +26,7 @@ updateZshTheme(){
   newThemeName=$1
 
   # Use sed to replace the old ZSH_THEME line with the new one
-  sed -i "s@ZSH_THEME=\"[^\"]*\"@ZSH_THEME=\"$newThemeName\"@" "$zshrcPath"
+  sed -i "s/ZSH_THEME=\"[^\"]*\"/ZSH_THEME=\"$newThemeName\"/" "${zshrcPath}"
   cp ./configurations/p10k.conf "${HOME}/.p10k.zsh"
 }
 
@@ -48,7 +48,7 @@ installPowerlevel10k(){
   info "Installing powerlevel10k theme"
   rm -rf "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
-  updateZshTheme "powerlevel10k/powerlevel10k"
+  updateZshTheme "powerlevel10k\/powerlevel10k"
 }
 
 configureOhMyZsh(){
