@@ -32,6 +32,9 @@ main(){
 
   installPackageWithYay "${testYayPackages[@]}"
   installPackageWithPacman "${developerPacmanPackages[@]}"
+  installRust
+  installOhMyZsh
+  installInfracost
 }
 
 main
