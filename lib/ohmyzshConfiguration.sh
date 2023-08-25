@@ -5,7 +5,7 @@ updatePluginsListZshrc(){
   new_plugins=("$@")
 
   # Define the file path
-  file_path=".zshrc"
+  file_path="${HOME}/.zshrc"
 
   # Read the current plugins line from the file
   current_plugins=$(grep -oP 'plugins=\(\K[^)]+' "$file_path")
@@ -15,7 +15,7 @@ updatePluginsListZshrc(){
 
   # Merge the current plugins and new plugins while removing duplicates
   mapfile -t merged_plugins < <(printf "%s\n" "${current_plugins_array[@]}" "${new_plugins[@]}" | sort -u)
-  
+
   # Generate the new plugins line
   new_plugins_string="plugins=(${merged_plugins[*]})"
 
