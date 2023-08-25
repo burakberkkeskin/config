@@ -11,11 +11,11 @@ installPackageWithPacman(){
 }
 
 installRust(){
-  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+  curl  -sSf https://sh.rustup.rs | sh -s -- -y
 }
 
 installOhMyZsh(){
-  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" 
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 }
 
 installInfracost(){

@@ -25,3 +25,14 @@ detectDistro(){
       echo "Unknown"
   fi
 }
+
+detectOs(){
+    os=$(uname -s)
+    if [[ "${os}" == "Linux" ]]; then
+        detectDistro
+    elif [[ "${os}" == "Darwin" ]]; then
+        echo "MacOS"
+    else
+        echo "Unknown OS"
+    fi
+}
