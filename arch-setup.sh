@@ -8,6 +8,7 @@ source lib/yaySetup.sh
 source lib/installPackage.sh
 source lib/detectDistro.sh
 source lib/dockerConfiguration.sh
+source lib/kvmConfiguration.sh
 
 main(){
 
@@ -55,17 +56,22 @@ main(){
 
   local developerPacmanPackages=("nodejs" "npm" "python" "go")
 
+  local kvmPackages=("archlinux-keyring" "qemu" "virt-manager" "virt-viewer" "dnsmasq" "vde2" "bridge-utils" "openbsd-netcat" "dmidecode" "iptables" "libguestfs")
+
   # Install packages with corresponding ways
   installPackageWithYay "${testYayPackages[@]}"
   installPackageWithYay "${clientYayPackages[@]}"
   installPackageWithYay "${developerYayPackages[@]}"
 
   installPackageWithPacman "${developerPacmanPackages[@]}"
+  installPackageWithPacman "${kvmPackages[@]}"
   
   installRust
   installOhMyZsh
   installInfracost
+
   configureDocker
+  configureKvm
 }
 
 main
