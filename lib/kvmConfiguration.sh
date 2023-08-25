@@ -6,5 +6,6 @@ configureSystemdService(){
 }
 
 configureKvm(){
+  title "Configuring KVM"
   configureSystemdService
 }
