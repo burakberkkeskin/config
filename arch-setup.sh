@@ -10,13 +10,14 @@ source lib/detectDistro.sh
 source lib/dockerConfiguration.sh
 source lib/kvmConfiguration.sh
 source lib/ohmyzshConfiguration.sh
+source lib/vimSetup.sh
 
-main(){
+main() {
   operatingSystem=$(detectOs)
   checkOs "${operatingSystem}"
   # Start of actual script
   title "Setup starting for ${operatingSystem}"
-  
+
   # Update packages
   updateSystem
 
@@ -29,23 +30,23 @@ main(){
 
   # List of packages to install from yay and pacman
   local clientYayPackages=("brave-bin" "discord_arch_electron" "spotify" "mailspring"
-      "flameshot" "kazam" "qbittorrent" "btop"
-      "openvpn3" "wireguard-tools" "terminator"
-      "zsh")
+    "flameshot" "kazam" "qbittorrent" "btop"
+    "openvpn3" "wireguard-tools" "terminator"
+    "zsh")
 
   local developerYayPackages=("code" "vim" "dbeaver"
-        "docker" "docker-buildx" "docker-compose"
-        "kubectl" "act-bin" "ansible" "dive"
-        "aws-cli-v2" "postman-bin" "trivy"
-        "zenv" "xdman8-bin" "terraform")
+    "docker" "docker-buildx" "docker-compose"
+    "kubectl" "act-bin" "ansible" "dive"
+    "aws-cli-v2" "postman-bin" "trivy"
+    "zenv" "xdman8-bin" "terraform")
 
   local clientPacmanPackages=("neofetch")
 
   local developerPacmanPackages=("nodejs" "npm" "python" "go" "kubectx")
 
-  local kvmPackages=("archlinux-keyring" "qemu" "virt-manager" "virt-viewer" 
-        "dnsmasq" "vde2" "bridge-utils" "openbsd-netcat" 
-        "dmidecode" "iptables" "libguestfs")
+  local kvmPackages=("archlinux-keyring" "qemu" "virt-manager" "virt-viewer"
+    "dnsmasq" "vde2" "bridge-utils" "openbsd-netcat"
+    "dmidecode" "iptables" "libguestfs")
 
   # Install packages with corresponding ways
   installPackageWithYay "${clientYayPackages[@]}"
@@ -54,7 +55,7 @@ main(){
   installPackageWithPacman "${developerPacmanPackages[@]}"
   installPackageWithPacman "${clientPacmanPackages[@]}"
   installPackageWithPacman "${kvmPackages[@]}"
-  
+
   installRust
   installOhMyZsh
   installInfracost
@@ -62,6 +63,7 @@ main(){
   configureDocker
   configureKvm
   configureOhMyZsh
+  configureVim
 
   success "Applications and configurations has been installed on your $operatingSystem!"
   info "Please open a new terminal session for fresh start."
