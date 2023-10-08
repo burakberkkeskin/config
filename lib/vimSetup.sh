@@ -8,5 +8,6 @@ checkVim() {
 }
 
 configureVim() {
-  cp ./configurations/.vimrc "${HOME}"
+  title "Configuring Vim"
+  cp ./configurations/.vimrc.basic "${HOME}/.vimrc"
 }
