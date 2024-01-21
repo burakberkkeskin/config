@@ -40,7 +40,7 @@ main() {
     "aws-cli-v2" "postman-bin" "trivy"
     "zenv" "xdman8-bin" "terraform")
 
-  local clientPacmanPackages=("neofetch")
+  local clientPacmanPackages=("neofetch" "kwallet5" "ksshaskpass")
 
   local developerPacmanPackages=("nodejs" "npm" "python" "go" "kubectx")
 
