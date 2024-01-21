@@ -11,6 +11,9 @@ source lib/dockerConfiguration.sh
 source lib/kvmConfiguration.sh
 source lib/ohmyzshConfiguration.sh
 source lib/vimSetup.sh
+source lib/waybarConfiguration.sh
+source lib/makoConfiguration.sh
+source lib/hyprlandConfiguration.sh
 
 main() {
   operatingSystem=$(detectOs)
@@ -23,7 +26,10 @@ main() {
 
   # Check git and base-devel (necessary packages)
   checkBaseDevel || installBaseDevel
-  checkGit || installGit
+  if ! checkGit; then
+    installGit
+  fi 
+  configureKwalletForGit
 
   # Install yay package manager
   checkYay || installYay
@@ -31,8 +37,7 @@ main() {
   # List of packages to install from yay and pacman
   local clientYayPackages=("brave-bin" "discord_arch_electron" "spotify" "mailspring"
     "flameshot" "kazam" "qbittorrent" "btop"
-    "openvpn3" "konsole" "wireguard-tools" "terminator"
-    "wofi"  "rofi" "rofi-emoji" "zsh" "mako")
+    "konsole" "wireguard-tools" "terminator" "zsh" )
 
   local developerYayPackages=("code" "vim" "dbeaver"
     "docker" "docker-buildx" "docker-compose"
@@ -43,6 +48,9 @@ main() {
   local clientPacmanPackages=("neofetch" "kwallet5" "ksshaskpass")
 
   local developerPacmanPackages=("nodejs" "npm" "python" "go" "kubectx")
+
+  local hyprlandPackages=("hyprland" "xdg-desktop-portal" "xdg-desktop-portal-hyprland" 
+    "rofi" "rofi-emoji" "wofi" "mako")
 
   local kvmPackages=("archlinux-keyring" "qemu" "virt-manager" "virt-viewer"
     "dnsmasq" "vde2" "bridge-utils" "openbsd-netcat"
@@ -64,6 +72,9 @@ main() {
   configureKvm
   configureOhMyZsh
   configureVim
+  configureWaybar
+  configureMako
+  configureHyprland
 
   success "Applications and configurations has been installed on your $operatingSystem!"
   info "Please open a new terminal session for fresh start."

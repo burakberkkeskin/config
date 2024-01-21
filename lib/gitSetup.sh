@@ -18,3 +18,7 @@ installGit(){
   title "Git installation"
   installGitPacman
 }
+
+configureKwalletForGit(){
+  echo "GIT_ASKPASS=/usr/bin/ksshaskpass" >> "${HOME}/.zshrc"
+}

@@ -27,3 +27,17 @@ git clone https://github.com/safderun/dotenv.git && cd dotenv
 ## Repo structure
 
 You add new apps using `installPackageWith*` function inside `installPackage.sh`
+
+## For `kdewallet` details
+
+Check the [KDE Wallet](https://wiki.archlinux.org/title/KDE_Wallet#Configure_PAM) page of the Arch Wiki
+
+## For Vscode to Work with `k5wallet`
+
+- Open vscode.
+
+- Press `ctrl + shift + p`
+
+- Search `>preferences:Configure Runtime Arguments`
+
+- Add -> `"password-store": "kwallet5"`
