@@ -31,8 +31,8 @@ main() {
   # List of packages to install from yay and pacman
   local clientYayPackages=("brave-bin" "discord_arch_electron" "spotify" "mailspring"
     "flameshot" "kazam" "qbittorrent" "btop"
-    "openvpn3" "wireguard-tools" "terminator"
-    "zsh")
+    "openvpn3" "konsole" "wireguard-tools" "terminator"
+    "wofi"  "rofi" "rofi-emoji" "zsh" "mako")
 
   local developerYayPackages=("code" "vim" "dbeaver"
     "docker" "docker-buildx" "docker-compose"
