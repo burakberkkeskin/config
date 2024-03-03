@@ -18,6 +18,7 @@ source lib/hyprlandConfiguration.sh
 main() {
   operatingSystem=$(detectOs)
   checkOs "${operatingSystem}"
+
   # Start of actual script
   title "Setup starting for ${operatingSystem}"
 
@@ -26,9 +27,8 @@ main() {
 
   # Check git and base-devel (necessary packages)
   checkBaseDevel || installBaseDevel
-  if ! checkGit; then
-    installGit
-  fi 
+  checkGit || installGit
+
   configureKwalletForGit
 
   # Install yay package manager
@@ -37,7 +37,7 @@ main() {
   # List of packages to install from yay and pacman
   local clientYayPackages=("brave-bin" "discord_arch_electron" "spotify" "mailspring"
     "flameshot" "kazam" "qbittorrent" "btop"
-    "konsole" "wireguard-tools" "terminator" "zsh" )
+    "konsole" "wireguard-tools" "terminator" "zsh")
 
   local developerYayPackages=("code" "vim" "dbeaver"
     "docker" "docker-buildx" "docker-compose"
@@ -49,7 +49,7 @@ main() {
 
   local developerPacmanPackages=("nodejs" "npm" "python" "go" "kubectx")
 
-  local hyprlandPackages=("hyprland" "xdg-desktop-portal" "xdg-desktop-portal-hyprland" 
+  local hyprlandPackages=("hyprland" "xdg-desktop-portal" "xdg-desktop-portal-hyprland"
     "rofi" "rofi-emoji" "wofi" "mako")
 
   local kvmPackages=("archlinux-keyring" "qemu" "virt-manager" "virt-viewer"
@@ -72,9 +72,12 @@ main() {
   configureKvm
   configureOhMyZsh
   configureVim
-  configureWaybar
-  configureMako
-  configureHyprland
+
+  # Install Hyprland If You Want
+  # installPackageWithYay "${hyprlandPackages[@]}"
+  # configureWaybar
+  # configureMako
+  # configureHyprland
 
   success "Applications and configurations has been installed on your $operatingSystem!"
   info "Please open a new terminal session for fresh start."
